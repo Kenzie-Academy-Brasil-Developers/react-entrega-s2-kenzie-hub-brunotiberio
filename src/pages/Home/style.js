@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { HeadLine } from "../../styles/global";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export const StyledH2 = styled.h2`
     color: var(--gray0);
@@ -44,5 +46,13 @@ export const StyledContainerPassword = styled.div`
         box-shadow: 0 0 0 0;
         outline: 0;
     }
+`
+
+export const StyledVisibilityOffIcon = styled(VisibilityOffIcon)`
+    color: var(--gray0)
+`
+
+export const StyledVisibilityIcon = styled(VisibilityIcon)`
+    color: var(--gray0)
 `
 

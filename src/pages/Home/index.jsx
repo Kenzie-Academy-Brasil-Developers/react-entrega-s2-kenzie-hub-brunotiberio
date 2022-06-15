@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { HeadLine, StyledButtonGray, StyledButtonPrimary, StyledCenterItens, StyledInput, StyledForm } from '../../styles/global'
-import { StyledH1, StyledH2, StyledHeadLine, StyledInputContainer, StyledContainerPassword } from './style'
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { StyledH1, StyledH2, StyledHeadLine, StyledInputContainer, StyledContainerPassword, StyledVisibilityOffIcon, StyledVisibilityIcon } from './style'
 import { IconButton } from '@mui/material';
 
 
@@ -49,7 +47,7 @@ export default function Home() {
             onMouseDown={handleMouseDownPassword}
             edge='end'
             >
-            {viewPassword === false ? <VisibilityOffIcon fontSize='small'/> : <VisibilityIcon fontSize='small'/>}
+            {viewPassword === false ? <StyledVisibilityOffIcon fontSize='small'/> : <StyledVisibilityIcon fontSize='small'/>}
             </IconButton>
             
 
