@@ -1,9 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { HeadLine, StyledButtonGray, StyledButtonPrimary, StyledCenterItens, StyledInput, StyledForm } from '../../styles/global'
+import { StyledH1, StyledH2, StyledHeadLine, StyledInputContainer, StyledContainerPassword } from './style'
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { IconButton } from '@mui/material';
+
+
 
 export default function Home() {
+
+  const [viewPassword, setViewPassword] = useState(false)
+
+  const handleViewPassword = (event) => {  
+    event.preventDefault()  
+    setViewPassword(!viewPassword)
+  }
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault()
+  }
+
+
   return (
     <>
-    <p>Home</p>
+    <StyledCenterItens>
+
+      <StyledH1>Kenzie Hub</StyledH1>
+
+      <StyledForm>      
+        
+        <StyledH2>Login</StyledH2>
+        
+        <StyledInputContainer>
+          <StyledHeadLine>Email</StyledHeadLine>
+          <StyledInput type='email' placeholder='Digite aqui seu e-mail'/>
+        </StyledInputContainer>
+
+        <StyledInputContainer>
+          <StyledHeadLine>Senha</StyledHeadLine>
+
+            <StyledContainerPassword>
+        
+            <StyledInput 
+            type={viewPassword === false ? 'password' : 'text'} 
+            placeholder='Digite aqui sua senha'/>
+            <IconButton 
+            onClick={handleViewPassword}
+            onMouseDown={handleMouseDownPassword}
+            edge='end'
+            >
+            {viewPassword === false ? <VisibilityOffIcon fontSize='small'/> : <VisibilityIcon fontSize='small'/>}
+            </IconButton>
+            
+
+            </StyledContainerPassword>
+            
+            
+            
+            
+         
+        </StyledInputContainer>
+
+        <StyledButtonPrimary primary>Entrar</StyledButtonPrimary>
+
+        <HeadLine gray1>Ainda não possui uma conta?</HeadLine>
+
+        <StyledButtonGray gray1 type='submit'>Cadastre-se</StyledButtonGray>
+
+      </StyledForm>
+
+    </StyledCenterItens>
     </>
   )
 }

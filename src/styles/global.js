@@ -9,6 +9,17 @@ export const StyledGlobal = createGlobalStyle`
         font-family: 'Inter', sans-serif;
     }
 
+    body{
+        background-color: #000000;
+    }
+
+    h1{
+        font-weight: bold;
+        font-size: 16px;
+        color: var(--primary);
+
+    }
+
     h1, h2, h3{
         font-weight: bold;
         font-size: 16px;
@@ -17,7 +28,7 @@ export const StyledGlobal = createGlobalStyle`
     :root{
         --primary: #FF577F;
         --primary-focus: #FF427F ;
-        --primary-Negative: #59323F;
+        --primary-negative: #59323F;
 
         --gray4: #121214;
         --gray3: #212529;
@@ -43,5 +54,81 @@ export const HeadlineItalic = styled.p`
     font-size: 12px;
     font-style: italic;
     color: ${(props) => props.gray1 ? 'var(--gray1)' : 'var(--gray0)'};
+`
+
+export const StyledButtonPrimary = styled.button`
+    width: 90%;
+    height: 38.5px;
+
+    border: 1.2182px solid ${props => props.primary ? 'var(--primary)' : 'var(--primary-negative)'};
+    border-radius: 4.06066px;
+    background: ${props => props.primary ? 'var(--primary)' : 'var(--primary-negative)'};
+
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12.8347px;
+    line-height: 21px;
+`
+
+export const StyledButtonGray = styled.button`
+    width: 90%;
+    height: 38.5px;
+
+    border: 1.2182px solid ${props => props.gray1 ? 'var(--gray1)' : 'var(--gray3)'};
+    border-radius: 4.06066px;
+    background: ${props => props.gray1 ? 'var(--gray1)' : 'var(--gray3)'};
+
+    color: var(--gray0);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12.8347px;
+    line-height: 21px;
+`
+
+export const StyledInput = styled.input`
+    border: 0.9772px solid #F8F9FA;
+    border-radius: 3.20867px;
+    background-color: var(--gray2);
+    color: var(--gray0);
+
+    width: 90%;
+    height: 38.5px;    
+
+    padding: 0px 13.0293px;
+
+    &&::placeholder{
+        color: #868E96;
+        font-size: 12.9865px;
+        line-height: 21px;
+        
+    }
+`
+
+export const StyledCenterItens = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+`
+
+export const StyledForm = styled.form`
+    background: var(--gray2);
+    box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
+    border-radius: 3.20867px;
+
+    width: 296px;
+    height: 402.69px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-top: 30px;
+
 `
 
