@@ -6,6 +6,8 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { api } from '../../services/api';
+import { toast } from 'react-toastify';
 
 const formSchema = yup.object({
   name: yup.string().required('Nome Obrigatório').matches('[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$', 'Apenas letras são aceitas'),
@@ -20,21 +22,53 @@ const formSchema = yup.object({
 
 export default function Register() {
 
+  const historyHome = useHistory()
+
+  function handleClickHome(){
+    historyHome.push('/')
+  }
+
+  const historyLogin = useHistory()
+
+  const handleClickLogin = () => {
+    return historyLogin.push('/')
+  }
+
+
+
   const {register, handleSubmit, formState: {errors}} = useForm({
     resolver: yupResolver(formSchema)
   })
 
   const onSubmit = (data) => {
-    console.log(data)
+
+    api.post('/users', {
+      email: data.email, 
+      password: data.password,
+      name: data.name, 
+      bio: data.bio,
+      contact: data.contact, 
+      course_module: data.course_module
+
+    })
+
+    .then((response) => {
+      console.log(response)
+      toast.success('Cadastro realizado com sucesso, indo para o Login')      
+      setInterval(handleClickLogin, 3000)
+    })
+
+    .catch((error) => {
+      console.log(error)
+      toast.error('Email já registrado')
+    })
   }
 
   console.log(errors)
 
-  const history = useHistory()
+  
 
-  function handleClickHistory(){
-    history.push('/')
-  }
+
 
   const [viewPassword, setViewPassword] = useState(false)
 
@@ -65,7 +99,7 @@ export default function Register() {
 
       <StyledLogoBack>
         <StyledH1>Kenzie Hub</StyledH1>
-        <StyledButtonGray onClick={handleClickHistory}>Voltar</StyledButtonGray>
+        <StyledButtonGray onClick={handleClickHome}>Voltar</StyledButtonGray>
       </StyledLogoBack>
 
       <StyledRegisterForm type='submit'>      
