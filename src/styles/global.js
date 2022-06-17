@@ -107,6 +107,25 @@ export const StyledInput = styled.input`
     }
 `
 
+export const StyledSelect = styled.select`
+    border: 0.9772px solid #F8F9FA;
+    border-radius: 3.20867px;
+    background-color: var(--gray2);
+    color: var(--gray0);
+
+    width: 90%;
+    height: 38.5px;    
+
+    padding: 0px 13.0293px;
+
+    &&::placeholder{
+        color: #868E96;
+        font-size: 12.9865px;
+        line-height: 21px;        
+    }
+
+`
+
 export const StyledCenterItens = styled.div`
     display: flex;
     flex-direction: column;

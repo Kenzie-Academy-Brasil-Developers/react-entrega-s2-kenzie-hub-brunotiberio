@@ -2,10 +2,19 @@ import React, { useState } from 'react'
 import { HeadLine, StyledButtonGray, StyledButtonPrimary, StyledCenterItens, StyledInput, StyledForm } from '../../styles/global'
 import { StyledH1, StyledH2, StyledHeadLine, StyledInputContainer, StyledContainerPassword, StyledVisibilityOffIcon, StyledVisibilityIcon } from './style'
 import { IconButton } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 
 
 export default function Home() {
+
+  const history = useHistory()
+
+  function handleClick(){
+    history.push('/register')
+  }
+
+  
 
   const [viewPassword, setViewPassword] = useState(false)
 
@@ -52,18 +61,14 @@ export default function Home() {
             
 
             </StyledContainerPassword>
-            
-            
-            
-            
          
         </StyledInputContainer>
 
-        <StyledButtonPrimary primary>Entrar</StyledButtonPrimary>
+        <StyledButtonPrimary primary type='submit'>Entrar</StyledButtonPrimary>
 
         <HeadLine gray1>Ainda não possui uma conta?</HeadLine>
 
-        <StyledButtonGray gray1 type='submit'>Cadastre-se</StyledButtonGray>
+        <StyledButtonGray gray1 onClick={handleClick}>Cadastre-se</StyledButtonGray>
 
       </StyledForm>
 
