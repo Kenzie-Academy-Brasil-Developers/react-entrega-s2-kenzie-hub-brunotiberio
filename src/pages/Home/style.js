@@ -29,7 +29,7 @@ export const StyledContainerPassword = styled.div`
 
     display: flex;
 
-    border: 0.9772px solid #F8F9FA;
+    border: 0.9772px solid ${props => props.error ? 'var(--primary-focus)' : 'var(--gray0)'};
     border-radius: 3.20867px;
     background-color: var(--gray2);
     color: var(--gray0);

@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import React from 'react'
 import Home from "../pages/Home";
 import Register from "../pages/Register";
+import { Teste } from "../styles/global";
 
 export default function Routes() {
   return (
@@ -17,8 +18,8 @@ export default function Routes() {
                 <Register />
             </Route>
 
-            <Route exact path='/main'>
-                <p>Página principal</p>
+            <Route exact path='/main/:id'>
+                <Teste>main</Teste>
             </Route>
         </Switch>
     </>

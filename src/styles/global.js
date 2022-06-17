@@ -56,6 +56,11 @@ export const HeadlineItalic = styled.p`
     color: ${(props) => props.gray1 ? 'var(--gray1)' : 'var(--gray0)'};
 `
 
+export const FormError = styled.label`
+    font-size: 12px;
+    color: var(--primary-focus);
+`
+
 export const StyledButtonPrimary = styled.button`
     width: 90%;
     height: 38.5px;
@@ -89,7 +94,7 @@ export const StyledButtonGray = styled.button`
 `
 
 export const StyledInput = styled.input`
-    border: 0.9772px solid #F8F9FA;
+    border: 0.9772px solid ${props => props.correct ? 'var(--gray0)' : 'var(--primary-focus)'};
     border-radius: 3.20867px;
     background-color: var(--gray2);
     color: var(--gray0);
@@ -154,6 +159,18 @@ export const StyledForm = styled.form`
     justify-content: space-evenly;
 
     margin-top: 30px;
-
 `
+
+export const Teste = styled.p`
+    color: white;
+`
+
+export const LabelFeedbackContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    width: 90%;
+`
+
+
 
