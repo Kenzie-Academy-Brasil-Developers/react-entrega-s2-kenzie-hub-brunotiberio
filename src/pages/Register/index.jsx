@@ -20,20 +20,24 @@ const formSchema = yup.object({
 })
 
 
-export default function Register() {
+export default function Register({logado}) {
 
   const historyHome = useHistory()
 
-  function handleClickHome(){
-    historyHome.push('/')
-  }
-
   const historyLogin = useHistory()
+
+  const [viewPassword, setViewPassword] = useState(false)
+
+  const [viewConfirmedPassword, setViewConfirmedPassword] = useState(false)
+
 
   const handleClickLogin = () => {
     return historyLogin.push('/')
   }
 
+  function handleClickHome(){
+    historyHome.push('/')
+  }
 
 
   const {register, handleSubmit, formState: {errors}} = useForm({
@@ -62,9 +66,7 @@ export default function Register() {
     })
   }
 
-  const [viewPassword, setViewPassword] = useState(false)
 
-  const [viewConfirmedPassword, setViewConfirmedPassword] = useState(false)
 
   const handleViewPassword = (event) => {  
     event.preventDefault()  

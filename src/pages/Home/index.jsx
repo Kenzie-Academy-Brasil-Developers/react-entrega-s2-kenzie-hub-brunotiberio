@@ -6,6 +6,8 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import { api } from '../../services/api';
+import { toast } from 'react-toastify';
 
 const formSchema = yup.object({
   email: yup.string().required('Email obrigatório').email('Email inválido'),
@@ -16,21 +18,44 @@ export default function Home() {
   
   const [viewPassword, setViewPassword] = useState(false) 
 
-  const history = useHistory()
+  const historyRegister = useHistory()
 
+  function handleClickRegister(){
+    historyRegister.push('/register')
+  }
 
+  const historyMain = useHistory()
+
+  function handleClickMain(id){
+    historyMain.push(`/main/${id}`)
+  }
 
   const {register, handleSubmit, formState: {errors}} = useForm({
     resolver: yupResolver(formSchema)
   })
 
   const onSubmit = (data) => {
+    console.log(data)
+    api.post('/sessions', {
+      email: data.email,
+      password: data.password
+    })
+    .then((response) => {
+      console.log(response)
+      toast.success('Login realizado com sucesso')
+      localStorage.setItem('@KH/User', response.data.user.id)
+      localStorage.setItem('@KH/Token', response.data.token)
+      handleClickMain(localStorage.getItem('@KH/User'))
+
+    })
+    .catch((error) => {
+      console.log(error)
+      toast.error('Email ou senha inválidos')
+    })
     
   }
 
-  function handleClick(){
-    history.push('/register')
-  }
+
 
   const handleViewPassword = (event) => {  
     event.preventDefault()  
@@ -88,7 +113,7 @@ export default function Home() {
 
         <HeadLine gray1>Ainda não possui uma conta?</HeadLine>
 
-        <StyledButtonGray gray1 onClick={handleClick}>Cadastre-se</StyledButtonGray>
+        <StyledButtonGray gray1 onClick={handleClickRegister}>Cadastre-se</StyledButtonGray>
 
       </StyledForm>
 
