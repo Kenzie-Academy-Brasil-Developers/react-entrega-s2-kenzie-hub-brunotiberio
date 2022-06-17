@@ -118,12 +118,18 @@ export const StyledSelect = styled.select`
 
     padding: 0px 13.0293px;
 
+    option {
+        color: #868E96;
+        font-size: 12.9865px;
+        line-height: 21px;       
+    }
+
     &&::placeholder{
         color: #868E96;
         font-size: 12.9865px;
-        line-height: 21px;        
+        line-height: 21px;       
+    
     }
-
 `
 
 export const StyledCenterItens = styled.div`
