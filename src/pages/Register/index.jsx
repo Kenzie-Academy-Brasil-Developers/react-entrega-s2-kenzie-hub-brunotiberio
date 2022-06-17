@@ -53,22 +53,14 @@ export default function Register() {
     })
 
     .then((response) => {
-      console.log(response)
       toast.success('Cadastro realizado com sucesso, indo para o Login')      
       setInterval(handleClickLogin, 3000)
     })
 
     .catch((error) => {
-      console.log(error)
       toast.error('Email já registrado')
     })
   }
-
-  console.log(errors)
-
-  
-
-
 
   const [viewPassword, setViewPassword] = useState(false)
 
