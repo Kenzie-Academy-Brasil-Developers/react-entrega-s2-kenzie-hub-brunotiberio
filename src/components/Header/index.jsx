@@ -1,13 +1,15 @@
 import React from 'react'
-import { StyledButtonGray } from '../../styles/global'
+import { HeadLine } from '../../styles/global'
+import { ContainerHeader, StyledH2 } from './style'
 
 export default function Header() {
   return (
     <>
-    <div>
-        <h1>Kenzie Hub</h1>
-        <StyledButtonGray>Sair</StyledButtonGray>
-    </div>
+    <ContainerHeader>
+        <StyledH2>Olá, Samuel Leão</StyledH2>
+        <HeadLine gray1>Primeiro módulo  (Introdução ao Frontend)</HeadLine>
+    </ContainerHeader>
+    
     </>
   )
 }
