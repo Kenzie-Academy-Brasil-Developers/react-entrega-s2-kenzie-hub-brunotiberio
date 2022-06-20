@@ -18,7 +18,7 @@ export default function Routes() {
                 <Register />
             </Route>
 
-            <Route exact path='/main/:id'> 
+            <Route exact path='/users/:id'> 
                 <Principal />
                 
             </Route>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyledCardContainer, StyledTecnologyLevel, StyledTecnologyName } from './style'
 
-export default function Card() {
+export default function Card({ title, status }) {
   return (
     <>
     <StyledCardContainer>
-        <StyledTecnologyName>React JS</StyledTecnologyName>
-        <StyledTecnologyLevel gray1>Intermediário</StyledTecnologyLevel>
+        <StyledTecnologyName>{title}</StyledTecnologyName>
+        <StyledTecnologyLevel gray1>{status}</StyledTecnologyLevel>
     </StyledCardContainer>
     </>
   )

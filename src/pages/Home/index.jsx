@@ -27,7 +27,7 @@ export default function Home() {
   const historyMain = useHistory()
 
   function handleClickMain(id){
-    historyMain.push(`/main/${id}`)
+    historyMain.push(`/users/${id}`)
   }
 
   const {register, handleSubmit, formState: {errors}} = useForm({
