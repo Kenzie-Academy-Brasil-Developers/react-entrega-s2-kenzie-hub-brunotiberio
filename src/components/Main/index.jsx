@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useState } from 'react'
 import { StyledButtonGray } from '../../styles/global'
 import Card from '../Card'
@@ -7,16 +8,17 @@ import { StyledAddContainer, StyledH3, StyledMain, StyledTecnologyContainer } fr
 
 export default function Main({dados}) {
 
+  const modalRef = useRef()
+
   const [modalAdd, setModalAdd] = useState(false)
 
   const handleModalAdd = () => {
     setModalAdd(!modalAdd)
   }
 
-
   return (    
     <>
-        {modalAdd && <ModalAdd setModalAdd={setModalAdd} modalAdd={modalAdd}/>}
+        {modalAdd && <ModalAdd setModalAdd={setModalAdd} modalAdd={modalAdd} modalRef={modalRef}/>}
         <StyledMain>
 
             <StyledAddContainer>

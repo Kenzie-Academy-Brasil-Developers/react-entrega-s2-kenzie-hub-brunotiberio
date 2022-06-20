@@ -57,16 +57,22 @@ export const StyledCloseModal = styled(StyledButtonGray)`
     height: 26px;
 `
 
-export const StyledFormAdd = styled.form`
+export const ContainerDataAdd = styled.div`
     display: flex;
+    
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-
+    
     width: 80%;
-    height: 50%;
+    height: 130px;
 
     margin-left: 10px;
+    margin-bottom: 20px;
+
+    @media (min-width: 500px) {
+        height: 180px;
+        margin-left: 15px;
+    }
 
     label{
         font-family: 'Inter';
@@ -90,6 +96,14 @@ export const StyledFormAdd = styled.form`
             height: 48px;
         }
     }
+
+`
+
+export const StyledFormAdd = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 `
 
 export const ContainerButtonCadastrar = styled.div`

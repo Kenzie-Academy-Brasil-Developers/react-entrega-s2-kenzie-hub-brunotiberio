@@ -172,5 +172,19 @@ export const LabelFeedbackContainer = styled.div`
     width: 90%;
 `
 
+export const StyledModalGlobal = styled.div`
+    position: fixed;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0,0,0, .9);
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 
 
