@@ -43,9 +43,9 @@ export default function Home() {
     .then((response) => {
       console.log(response)
       toast.success('Login realizado com sucesso')
-      localStorage.setItem('@KH/User', response.data.user.id)
-      localStorage.setItem('@KH/Token', response.data.token)
-      handleClickMain(localStorage.getItem('@KH/User'))
+      localStorage.setItem('@KH/User', JSON.stringify(response.data.user.id))
+      localStorage.setItem('@KH/Token', JSON.stringify(response.data.token))
+      handleClickMain(JSON.parse(localStorage.getItem('@KH/User')))
 
     })
     .catch((error) => {

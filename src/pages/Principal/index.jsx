@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Main from '../../components/Main'
 import Navbar from '../../components/Navbar'
@@ -8,16 +8,19 @@ export default function Principal() {
 
   const [dados, setDados] = useState({})
 
-  const getUserName = api.get(`/users/${localStorage.getItem('@KH/User')}`)
+  useEffect(() => {
+  api.get(`/users/${JSON.parse(localStorage.getItem('@KH/User'))}`)
   .then((response) => setDados(response.data))
   .catch((error) => console.log(error))
+  }, []) 
 
+  console.log(dados.techs)
 
   return (
     <>
         <Navbar/>
         <Header dados={dados}/>
-        <Main dados={dados}/>
+        {<Main dados={dados.techs || []}/>}
     </>
 
   )

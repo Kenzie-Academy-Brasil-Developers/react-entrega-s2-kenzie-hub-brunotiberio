@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { api } from '../../services/api'
+import React from 'react'
 import { HeadLine } from '../../styles/global'
 import { ContainerHeader, StyledH2 } from './style'
 
