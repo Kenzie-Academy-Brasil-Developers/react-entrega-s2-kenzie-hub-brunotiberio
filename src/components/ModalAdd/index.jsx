@@ -20,27 +20,31 @@ export default function ModalAdd({setModalAdd, modalAdd}) {
     resolver: yupResolver(formSchema)
   })
 
+  /* A renderização em tempo real deve ser feito com useEffect, porém não consegui fazer funfar */
+
   function onSubmit(data) {
 
-     api.post('/users/techs', {
-        title: data.title,
-	      status: data.status
-    }, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('@KH/Token')}`
-      }
-    })
+    api.post('/users/techs', {
+       'title': data.title,
+       'status': data.status
+   }, {
+     headers: {
+       Authorization: `Bearer ${JSON.parse(localStorage.getItem('@KH/Token'))}`
+     }
+   })
 
-    .then((response) => {
-      console.log(response)
-      toast.success('Tecnologia adicionada com sucesso')
-    })
+   .then((response) => {
+     console.log(response)
+     toast.success('Tecnologia adicionada com sucesso')
+   })
 
-    .catch((err) => {
-      console.log(err.response.data)
-      toast.error('Preencha todos os campos corretamente')
-    }) 
-  }
+   .catch((err) => {
+     console.log(err.response.data)
+     toast.error('Preencha todos os campos corretamente')
+   }) 
+ }
+
+  
 
   console.log(errors)
 

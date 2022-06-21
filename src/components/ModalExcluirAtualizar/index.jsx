@@ -31,7 +31,7 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalA
             status: data.status,
         },{
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('@KH/Token')}`
+              Authorization: `Bearer ${JSON.parse(localStorage.getItem('@KH/Token'))}`
             }
         })
     
@@ -52,7 +52,7 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalA
     api.delete(`/users/techs/${dataID.id}`,
         {
         headers: {
-            Authorization: `Bearer ${localStorage.getItem('@KH/Token')}`
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('@KH/Token'))}`
         }
     })
 

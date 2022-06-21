@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useState } from 'react'
 import { StyledButtonGray } from '../../styles/global'
 import Card from '../Card'
