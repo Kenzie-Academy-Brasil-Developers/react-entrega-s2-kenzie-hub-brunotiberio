@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { HeadLine, HeadlineBold } from "../../styles/global";
 
-export const StyledCardContainer = styled.div`
+export const StyledCardContainer = styled.button`
     height: 48.73px;
     width: 95%;
 
@@ -10,6 +10,7 @@ export const StyledCardContainer = styled.div`
     
     background-color: var(--gray4);
     border-radius: 4.06066px;
+    border: 1px solid transparent;
 
     display: flex;
     justify-content: space-between;
