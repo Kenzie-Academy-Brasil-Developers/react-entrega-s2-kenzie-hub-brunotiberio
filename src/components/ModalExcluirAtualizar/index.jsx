@@ -14,9 +14,9 @@ const formSchema = yup.object({
 })
 
 
-export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, dados, atualizarCards, handleModalAtualizarExcluir, modalAtualizarExcluir }) {
+export default function ModalExcluirAtualizar({ data ,dados, atualizarCards, handleModalAtualizarExcluir, modalAtualizarExcluir }) {
 
-  console.log(dados.id)
+  console.log(dados)
 
   const {register, handleSubmit, formState: {errors}} = useForm({
     resolver: yupResolver(formSchema)
@@ -79,7 +79,7 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, dados,
 
           <ContainerDataAdd>
             <label>Nome do projeto</label>
-            <ContainerValueClick>{dados.title}</ContainerValueClick>
+            <ContainerValueClick>{data.title}</ContainerValueClick>
 
             <label>Status</label>
             <StyledSelect {...register('status')}>

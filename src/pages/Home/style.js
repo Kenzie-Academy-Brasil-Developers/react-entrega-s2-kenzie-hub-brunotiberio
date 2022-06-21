@@ -49,10 +49,14 @@ export const StyledContainerPassword = styled.div`
 `
 
 export const StyledVisibilityOffIcon = styled(VisibilityOffIcon)`
-    color: var(--gray0)
+    color: var(--gray0);
 `
 
 export const StyledVisibilityIcon = styled(VisibilityIcon)`
-    color: var(--gray0)
+    color: var(--gray0);
 `
+
+
+
+
 

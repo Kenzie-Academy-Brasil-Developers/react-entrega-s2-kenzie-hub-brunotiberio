@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const ContainerHeader = styled.header`
     max-width: 1024px;
 
+    margin: auto;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -18,6 +20,8 @@ export const ContainerHeader = styled.header`
    h2,p{
     margin-left: 10px;
    }
+
+   
 `
 
 export const StyledH2 = styled.h2`

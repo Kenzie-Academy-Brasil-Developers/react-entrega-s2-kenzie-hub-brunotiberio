@@ -10,6 +10,8 @@ export const ContainerHeader = styled.nav`
     align-items: center;
 
     height: 60px;
+
+    margin: auto;
 `
 
 export const StyledButton = styled(StyledButtonGray)`

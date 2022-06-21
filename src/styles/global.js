@@ -75,6 +75,11 @@ export const StyledButtonPrimary = styled.button`
     font-weight: 500;
     font-size: 12.8347px;
     line-height: 21px;
+
+    &&:hover{
+        cursor: pointer;
+        background: var(--primary-focus);
+    }
 `
 
 export const StyledButtonGray = styled.button`
@@ -91,6 +96,11 @@ export const StyledButtonGray = styled.button`
     font-weight: 500;
     font-size: 12.8347px;
     line-height: 21px;
+
+    &&:hover{
+        cursor: pointer;
+        background: var(--gray3);
+    }
 `
 
 export const StyledInput = styled.input`

@@ -76,6 +76,11 @@ export const ContainerValueClick = styled.div`
     align-items: center;
 
     padding-left: 20px;
+
+    @media (min-width: 500px){
+        width: 331px;
+        height: 48px;
+    }
 `
 
 export const ContainerDataAdd = styled.div`
@@ -136,6 +141,10 @@ export const ContainerButtonAtualizarExcluir = styled.div`
     
 
     width: 89%;
+
+    @media (min-width: 500px){
+        margin-left: 16px;
+    }
 ` 
 
 export const StyledSalvarAlteracoes = styled(StyledButtonPrimary)`

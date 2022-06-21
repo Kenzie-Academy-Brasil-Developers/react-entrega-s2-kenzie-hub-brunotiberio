@@ -15,6 +15,11 @@ export const StyledCardContainer = styled.button`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &&:hover{
+        cursor: pointer;
+        background: var(--gray2)
+    }
     
 `
 

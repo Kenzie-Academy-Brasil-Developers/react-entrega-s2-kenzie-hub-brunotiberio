@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { StyledButtonGray } from '../../styles/global'
 import Card from '../Card'
 import ModalAdd from '../ModalAdd/index.jsx'
-import ModalExcluirAtualizar from '../ModalExcluirAtualizar'
 import { StyledAddContainer, StyledH3, StyledMain, StyledTecnologyContainer } from './style'
 
 
@@ -32,7 +31,7 @@ export default function Main({dados, atualizarCards}) {
         
         <StyledTecnologyContainer>
           {dados?.map((tech) => 
-            <Card setModalAtualizarExcluir={setModalAtualizarExcluir} modalAtualizarExcluir={modalAtualizarExcluir} atualizarCards={atualizarCards} handleModalAtualizarExcluir={handleModalAtualizarExcluir} key={tech.id} dados={tech.id} /> 
+            <Card setModalAtualizarExcluir={setModalAtualizarExcluir} modalAtualizarExcluir={modalAtualizarExcluir} atualizarCards={atualizarCards} handleModalAtualizarExcluir={handleModalAtualizarExcluir} key={tech.id} dados={tech.id} data={tech} /> 
           
           )}
              

@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StyledMain = styled.main`
     max-width: 1024px;
+
+    margin: auto;
 `
 
 export const StyledAddContainer = styled.div`
