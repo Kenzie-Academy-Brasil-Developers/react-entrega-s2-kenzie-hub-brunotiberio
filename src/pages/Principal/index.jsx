@@ -12,15 +12,19 @@ export default function Principal() {
   api.get(`/users/${JSON.parse(localStorage.getItem('@KH/User'))}`)
   .then((response) => setDados(response.data))
   .catch((error) => console.log(error))
-  }, []) 
+  }, [])
 
-  console.log(dados.techs)
+  const atualizarCards = () => {
+    api.get(`/users/${JSON.parse(localStorage.getItem('@KH/User'))}`)
+    .then((response) => setDados(response.data))
+    .catch((error) => console.log(error))    
+  }
 
   return (
     <>
         <Navbar/>
         <Header dados={dados}/>
-        {<Main dados={dados.techs || []}/>}
+        {<Main atualizarCards={atualizarCards} dados={dados.techs || []}/>}
     </>
 
   )

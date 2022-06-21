@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useState } from 'react'
 import { StyledButtonGray } from '../../styles/global'
 import Card from '../Card'
@@ -7,7 +6,7 @@ import ModalExcluirAtualizar from '../ModalExcluirAtualizar'
 import { StyledAddContainer, StyledH3, StyledMain, StyledTecnologyContainer } from './style'
 
 
-export default function Main({dados}) {
+export default function Main({dados, atualizarCards}) {
 
   const [modalAdd, setModalAdd] = useState(false)
   const [modalAtualizarExcluir, setModalAtualizarExcluir] = useState(false)
@@ -16,16 +15,13 @@ export default function Main({dados}) {
     setModalAdd(!modalAdd)
   }  
 
-  const handleModalAtualizarExcluir = (event) => {
-    const idTech = event.target
-    console.log(idTech)
+  const handleModalAtualizarExcluir = () => {
     setModalAtualizarExcluir(!modalAtualizarExcluir)
   }
 
   return (    
     <>
-        {modalAdd && <ModalAdd setModalAdd={setModalAdd} modalAdd={modalAdd}/>}
-        {modalAtualizarExcluir && <ModalExcluirAtualizar dados={dados} setModalAtualizarExcluir={setModalAtualizarExcluir} modalAtualizarExcluir={modalAtualizarExcluir}/>}
+        {modalAdd && <ModalAdd atualizarCards={atualizarCards} setModalAdd={setModalAdd} modalAdd={modalAdd}/>}
         <StyledMain>
 
             <StyledAddContainer>
@@ -36,7 +32,8 @@ export default function Main({dados}) {
         
         <StyledTecnologyContainer>
           {dados?.map((tech) => 
-            <Card id={dados.id} handleModalAtualizarExcluir={handleModalAtualizarExcluir} key={tech.id} dados={tech} /> 
+            <Card setModalAtualizarExcluir={setModalAtualizarExcluir} modalAtualizarExcluir={modalAtualizarExcluir} atualizarCards={atualizarCards} handleModalAtualizarExcluir={handleModalAtualizarExcluir} key={tech.id} dados={tech.id} /> 
+          
           )}
              
         </StyledTecnologyContainer>

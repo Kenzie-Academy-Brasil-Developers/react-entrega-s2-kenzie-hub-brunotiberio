@@ -13,7 +13,7 @@ const formSchema = yup.object({
 })
 
 
-export default function ModalAdd({setModalAdd, modalAdd}) {
+export default function ModalAdd({setModalAdd, modalAdd, atualizarCards}) {
 
 
   const {register, handleSubmit, formState: {errors}} = useForm({
@@ -36,6 +36,7 @@ export default function ModalAdd({setModalAdd, modalAdd}) {
    .then((response) => {
      console.log(response)
      toast.success('Tecnologia adicionada com sucesso')
+     atualizarCards()
    })
 
    .catch((err) => {

@@ -5,6 +5,8 @@ import { StyledGlobal } from "./styles/global";
 
 function App() {
 
+
+
   return (
     <>
     

@@ -41,7 +41,6 @@ export default function Home() {
       password: data.password
     })
     .then((response) => {
-      console.log(response)
       toast.success('Login realizado com sucesso')
       localStorage.setItem('@KH/User', JSON.stringify(response.data.user.id))
       localStorage.setItem('@KH/Token', JSON.stringify(response.data.token))

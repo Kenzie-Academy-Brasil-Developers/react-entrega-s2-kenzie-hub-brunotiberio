@@ -14,7 +14,9 @@ const formSchema = yup.object({
 })
 
 
-export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalAtualizarExcluir, dados }) {
+export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, dados, atualizarCards, handleModalAtualizarExcluir, modalAtualizarExcluir }) {
+
+  console.log(dados.id)
 
   const {register, handleSubmit, formState: {errors}} = useForm({
     resolver: yupResolver(formSchema)
@@ -23,16 +25,16 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalA
   /* não estou conseguindo pegar o id ao clicar sobre o card */
   
   function onSubmitAlteracoes(data) {
-
-        const dataID = dados.filter((dado) => dado.id === data.id /* hipotese */) 
-        console.log(dataID)
         
-        api.put(`/users/techs/${dataID.id}`, {
+        api.put(`/users/techs/${dados}`, {
             status: data.status,
         },{
             headers: {
               Authorization: `Bearer ${JSON.parse(localStorage.getItem('@KH/Token'))}`
             }
+        })
+        .then((response) =>  {
+          atualizarCards()
         })
     
       }
@@ -46,14 +48,14 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalA
   /* (Para delete) não estou conseguindo pegar o id ao clicar sobre o card */
   
   function onSubmitDelete(data) {
-
-    const dataID = dados.filter((dado) => dado.id === data.id /* hipotese */)
-    
-    api.delete(`/users/techs/${dataID.id}`,
+    api.delete(`/users/techs/${data}`,
         {
         headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('@KH/Token'))}`
         }
+    })
+    .then((response) => {
+      atualizarCards()
     })
 
   }
@@ -63,10 +65,6 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalA
 /* não estou conseguindo pegar o id ao clicar sobre o card */
 
 
-
-
-
-
   return (
     <>
     <StyledModalContainer>
@@ -74,14 +72,14 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalA
         <StyledDivModal>
         <DivHeaderModal>
           <HeadLine>Tecnologia Detalhes</HeadLine>
-          <StyledCloseModalOrDelete gray1 onClick={() => setModalAtualizarExcluir(!modalAtualizarExcluir)}>X</StyledCloseModalOrDelete>
+          <StyledCloseModalOrDelete gray1 onClick={() => handleModalAtualizarExcluir()}>X</StyledCloseModalOrDelete>
         </DivHeaderModal>     
 
         <StyledFormAdd onSubmit={handleSubmit(onSubmitAlteracoes)}>
 
           <ContainerDataAdd>
             <label>Nome do projeto</label>
-            <ContainerValueClick>Material UI</ContainerValueClick>
+            <ContainerValueClick>{dados.title}</ContainerValueClick>
 
             <label>Status</label>
             <StyledSelect {...register('status')}>
@@ -92,12 +90,12 @@ export default function ModalExcluirAtualizar({ setModalAtualizarExcluir, modalA
           </ContainerDataAdd>
 
           <ContainerButtonAtualizarExcluir>
-            <StyledSalvarAlteracoes type='submit'>Salvar Alterações</StyledSalvarAlteracoes>
-            <StyledCloseModalOrDelete gray1 excluir type='submit'>Excluir</StyledCloseModalOrDelete>
+            <StyledSalvarAlteracoes  type='submit'>Salvar Alterações</StyledSalvarAlteracoes>
+            <StyledCloseModalOrDelete onClick={() => onSubmitDelete(dados)} gray1 excluir>Excluir</StyledCloseModalOrDelete>
           </ContainerButtonAtualizarExcluir>
 
           </StyledFormAdd>
-        
+          
         </StyledDivModal>
 
         </StyledModalContainer>  
