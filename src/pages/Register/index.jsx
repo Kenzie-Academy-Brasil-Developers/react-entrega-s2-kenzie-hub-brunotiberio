@@ -24,20 +24,9 @@ export default function Register({logado}) {
 
   const historyHome = useHistory()
 
-  const historyLogin = useHistory()
-
   const [viewPassword, setViewPassword] = useState(false)
 
   const [viewConfirmedPassword, setViewConfirmedPassword] = useState(false)
-
-
-  const handleClickLogin = () => {
-    return historyLogin.push('/')
-  }
-
-  function handleClickHome(){
-    historyHome.push('/')
-  }
 
 
   const {register, handleSubmit, formState: {errors}} = useForm({
@@ -57,8 +46,8 @@ export default function Register({logado}) {
     })
 
     .then((response) => {
-      toast.success('Cadastro realizado com sucesso, indo para o Login')      
-      setInterval(handleClickLogin, 3000)
+      toast.success('Cadastro realizado com sucesso, indo para o Login')
+      return historyHome.push('/')
     })
 
     .catch((error) => {
@@ -93,7 +82,7 @@ export default function Register({logado}) {
 
       <StyledLogoBack>
         <StyledH1>Kenzie Hub</StyledH1>
-        <StyledButtonGray onClick={handleClickHome}>Voltar</StyledButtonGray>
+        <StyledButtonGray onClick={() => historyHome.push('/')}>Voltar</StyledButtonGray>
       </StyledLogoBack>
 
       <StyledRegisterForm type='submit'>      
